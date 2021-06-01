@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Viex.WebSockets.Api", "Viex.WebSockets.Api\Viex.WebSockets.Api.csproj", "{EBD5C6A3-86FE-4405-BE0F-CE34E694765D}"
+EndProject
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "Viex.WebSockets.Web", "Viex.WebSockets.Web\Viex.WebSockets.Web.njsproj", "{97CCD048-A73F-451D-A169-9A69836D0F46}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Viex.WebSockets.Core", "Viex.WebSockets.Core\Viex.WebSockets.Core.csproj", "{4ED9C24C-246B-4722-BE28-98AFB6EB0832}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EBD5C6A3-86FE-4405-BE0F-CE34E694765D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBD5C6A3-86FE-4405-BE0F-CE34E694765D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBD5C6A3-86FE-4405-BE0F-CE34E694765D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBD5C6A3-86FE-4405-BE0F-CE34E694765D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97CCD048-A73F-451D-A169-9A69836D0F46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97CCD048-A73F-451D-A169-9A69836D0F46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97CCD048-A73F-451D-A169-9A69836D0F46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97CCD048-A73F-451D-A169-9A69836D0F46}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4ED9C24C-246B-4722-BE28-98AFB6EB0832}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4ED9C24C-246B-4722-BE28-98AFB6EB0832}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4ED9C24C-246B-4722-BE28-98AFB6EB0832}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4ED9C24C-246B-4722-BE28-98AFB6EB0832}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E71E2116-B2CF-471A-AC76-F7B89D1EEEE6}
+	EndGlobalSection
+EndGlobal
