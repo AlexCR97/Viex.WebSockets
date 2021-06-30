@@ -11,9 +11,9 @@ namespace Viex.WebSockets.Core.Repositories
 {
     public class WaitingRoomRepository : IRepository<WaitingRoom>
     {
-        private readonly MyContext _context;
+        private readonly ViexContext _context;
 
-        public WaitingRoomRepository(MyContext context)
+        public WaitingRoomRepository(ViexContext context)
         {
             _context = context;
         }

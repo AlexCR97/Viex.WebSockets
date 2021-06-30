@@ -12,9 +12,9 @@ namespace Viex.WebSockets.Core.Repositories
 {
     public class UserRepository : IRepository<User>
     {
-        private readonly MyContext _context;
+        private readonly ViexContext _context;
 
-        public UserRepository(MyContext context)
+        public UserRepository(ViexContext context)
         {
             _context = context;
         }

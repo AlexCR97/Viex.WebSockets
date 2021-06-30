@@ -11,5 +11,7 @@ namespace Viex.WebSockets.Core.Models
         public int UserId { get; set; }
         public string Username { get; set; }
         public bool IsHost { get; set; }
+        public bool FinishedCurrentTurn { get; set; }
+        public int Score { get; set; }
     }
 }

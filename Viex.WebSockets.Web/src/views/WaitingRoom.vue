@@ -42,6 +42,8 @@
 
         </div>
 
+        <LoadingModal ref="loadingModal"/>
+
     </div>
 </template>
 
@@ -51,6 +53,7 @@ import hubs from "@/hubs";
 import storage from "@/storage";
 import api from "@/api";
 import { WaitingRoom } from '@/models/WaitingRoom';
+import LoadingModalComponent from '@/components/modals/LoadingModal.vue';
 
 @Component
 export default class WaitingRoomComponent extends Vue {
@@ -58,7 +61,7 @@ export default class WaitingRoomComponent extends Vue {
     room = new WaitingRoom();
     loadingRoom = true;
     
-    remainingSeconds = 60;
+    remainingSeconds = 15;
 
     constructor() {
         super();
@@ -79,6 +82,10 @@ export default class WaitingRoomComponent extends Vue {
             : this.room.host.username;
     }
 
+    get loadingModal() {
+        return this.$refs.loadingModal as LoadingModalComponent;
+    }
+
     isThisMyUserName(username: string) {
         return storage.session.getUser().username == username;
     }
@@ -97,18 +104,34 @@ export default class WaitingRoomComponent extends Vue {
             this.remainingSeconds = remainingSeconds;
         });
 
-        hubs.waitingRooms.onTimeUp(() => {
-            // TODO start game
+        hubs.waitingRooms.onTimeUp(async () => {
+            this.loadingModal.open({
+                title: "Starting Game",
+                message: "Please wait. Game will start shortly",
+            });
+
+            if (this.currentUser.isHost)
+                await this.startGame(waitingRoomPassword);
+        });
+
+        hubs.gameRooms.onGameStarted(() => {
+            this.loadingModal.close();
+            this.$router.push("/gameRoom");
         });
 
         hubs.waitingRooms.join({
             username: this.currentUser.username,
-            roomPassword: storage.session.getWaitingRoomPassword(),
+            roomPassword: waitingRoomPassword,
         });
 
         if (this.currentUser.isHost) {
             hubs.waitingRooms.startCountDown(waitingRoomPassword);
         }
+    }
+
+    private async startGame(waitingRoomPassword: string) {
+        await api.gameRooms.startGame(waitingRoomPassword);
+        hubs.gameRooms.startGame(waitingRoomPassword);
     }
 }
 </script>

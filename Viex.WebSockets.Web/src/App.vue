@@ -4,6 +4,26 @@
   </div>
 </template>
 
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator';
+import api from "@/api";
+import storage from "@/storage";
+
+@Component
+export default class AppComponent extends Vue {
+
+  constructor() {
+    super();
+    this.init();
+  }
+
+  async init() {
+    const gameConcepts = await api.gameConcepts.getCategories();
+    storage.local.setGameConceptCategories(gameConcepts);
+  }
+}
+</script>
+
 <style>
 .app-border-red {
   border: 2px solid red;

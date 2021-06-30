@@ -4,6 +4,7 @@ import Home from '@/views/Home.vue'
 import CreateWaitingRoom from "@/views/CreateWaitingRoom.vue"
 import JoinWaitingRoom from "@/views/JoinWaitingRoom.vue";
 import WaitingRoom from "@/views/WaitingRoom.vue";
+import GameRoom from "@/views/GameRoom.vue";
 
 Vue.use(Router)
 
@@ -34,6 +35,11 @@ export default new Router({
       path: '/waitingRoom',
       name: 'WaitingRoom',
       component: WaitingRoom,
+    },
+    {
+      path: '/gameRoom',
+      name: 'GameRoom',
+      component: GameRoom,
     },
   ]
 })

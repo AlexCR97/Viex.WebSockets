@@ -23,33 +23,8 @@ namespace Viex.WebSockets.Api.Hubs
 
         public Task StartCountDown(string waitingRoomPassword)
         {
-            _tasks.EnqueueJob(waitingRoomPassword);
+            _waitingRoomCountDownTasks.EnqueueJob(waitingRoomPassword);
             return Task.CompletedTask;
-
-            //await Task.Run(() =>
-            //{
-            //    var timer = new Timer
-            //    {
-            //        AutoReset = true,
-            //        Interval = 1000,
-            //    };
-
-            //    timer.Elapsed += async (sender, ev) =>
-            //    {
-            //        var waitingRoom = await _waitingRooms.GetFirst(room => room.Password == waitingRoomPassword);
-            //        var remainingSeconds = waitingRoom.RemainingSeconds - 1;
-
-            //        await _waitingRooms.Edit(waitingRoom.WaitingRoomId, waitingRoom);
-            //        await Clients.Group(waitingRoomPassword).SendAsync("WaitingRoomRemainingSecondsElapsed", remainingSeconds);
-
-            //        if (remainingSeconds <= 0)
-            //        {
-            //            timer.Stop();
-            //        }
-            //    };
-
-            //    timer.Start();
-            //});
         }
     }
 }

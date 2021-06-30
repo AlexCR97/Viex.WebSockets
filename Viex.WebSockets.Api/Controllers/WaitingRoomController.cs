@@ -42,7 +42,7 @@ namespace Viex.WebSockets.Api.Controllers
                 {
                     HostId = userId,
                     Password = payload.RoomPassword,
-                    RemainingSeconds = 60,
+                    RemainingSeconds = 15,
                 });
 
                 var createdWaitingRoom = await _waitingRooms.GetFirst(a => a.WaitingRoomId == waitingRoomId);

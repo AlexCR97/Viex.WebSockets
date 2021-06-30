@@ -11,7 +11,9 @@ namespace Viex.WebSockets.Core
     {
         public static void RegisterServices(IServiceCollection services)
         {
-            services.AddDbContext<MyContext>(options => options.UseInMemoryDatabase("Viex.WebSockets.Database"));
+            services.AddDbContext<ViexContext>(options => options.UseInMemoryDatabase("Viex.WebSockets.Database"));
+            services.AddScoped<GameConceptRepository>();
+            services.AddScoped<GameRoomRepository>();
             services.AddScoped<UserRepository>();
             services.AddScoped<WaitingRoomRepository>();
         }
